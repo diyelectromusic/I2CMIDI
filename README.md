@@ -61,7 +61,7 @@ The included examples demonstrate a CONTROLLER transmitter (MIDI OUT) and a PERI
 
 To experiment with the PERIPHERAL as the transmitter (MIDI OUT) and the CONTROLLER as the receiver (MIDI IN), just change the parameters passed in to I2CMIDI_CREATE_INSTANCE.
 
-For more details, refer to the following blog post: [Arduino I2C MIDI Interface - Part 2](https://diyelectromusic.wordpress.com/)
+For more details, refer to the following blog post: [Arduino I2C MIDI Interface - Part 2](https://diyelectromusic.wordpress.com/2022/01/08/arduino-i2c-midi-interface-part-2/)
 
 Kevin
 @diyelectromusic
