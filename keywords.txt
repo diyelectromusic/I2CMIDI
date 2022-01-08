@@ -1,0 +1,37 @@
+#######################################
+# Syntax Coloring Map For i2cMIDI
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+I2CMIDI	KEYWORD1
+I2CMIDI.h	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin				KEYWORD2
+beginTransmission	KEYWORD2
+write				KEYWORD2
+endTransmission		KEYWORD2
+read				KEYWORD2
+available			KEYWORD2
+
+#######################################
+# Instances (KEYWORD3)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+I2CMIDI_CREATE_INSTANCE			LITERAL1
+I2CMIDI_CREATE_CUSTOM_INSTANCE	LITERAL1
+I2CMIDICONTROLLER				LITERAL1
+I2CMIDIPERIPHERAL				LITERAL1
+
+# Namespace, considering it as a literal
+i2cMIDI	LITERAL1
+
