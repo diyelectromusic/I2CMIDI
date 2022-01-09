@@ -55,13 +55,19 @@ These will create a instance named `MIDI` using an I2C exchange to a device at I
 There should only be one CONTROLLER on the bus, but in principle there can be several PERIPHERALs.  Either can send or receive MIDI data but note that it is more efficient for a CONTROLLER to do the sending and PERIPHERALs to receive.
 
 
-### Provided Example
+### Provided Example 1
 
 The included examples demonstrate a CONTROLLER transmitter (MIDI OUT) and a PERIPHERAL receiver (MIDI IN).  This requires two Arduinos with an I2C link between them.  This requires the connections: A4 to A4; A5 to A5; and GND to GND.  A simple loudspeaker can be connected to pin 8 of the PERIPHERAL receiver to hear the tones being played by the CONTROLLER.  Either way the results will be printed out to the serial monitor.
 
 To experiment with the PERIPHERAL as the transmitter (MIDI OUT) and the CONTROLLER as the receiver (MIDI IN), just change the parameters passed in to I2CMIDI_CREATE_INSTANCE.
 
 For more details, refer to the following blog post: [Arduino I2C MIDI Interface - Part 2](https://diyelectromusic.wordpress.com/2022/01/08/arduino-i2c-midi-interface-part-2/)
+
+### Provided Example 2
+
+A second example provides code to show how an Arduino can act as a one-way Serial MIDI to I2C MIDI relay.  The direction is configurable.
+
+For details on this one, refer to the blog post: [Arduino I2C MIDI Interface - Part 3](https://diyelectromusic.wordpress.com/2022/01/09/arduino-i2c-midi-interface-part-3/)
 
 Kevin
 @diyelectromusic
