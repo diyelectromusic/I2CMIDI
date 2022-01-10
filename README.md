@@ -19,16 +19,16 @@ MIDI I2C Controller Transmitter
 #include <MIDI.h>
 #include <I2CMIDI.h>
 
-I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, 0x40, MIDI);
+I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, 0x40, I2CMIDI);
 
 void setup()
 {
-   MIDI.begin();
+   I2CMIDI.begin();
 ...
 
 void loop()
 {
-   MIDI.SendNoteOn(60, 127, 1);
+   I2CMIDI.SendNoteOn(60, 127, 1);
 ...
 ```
 MIDI I2C Peripheral Receiver
@@ -38,19 +38,19 @@ MIDI I2C Peripheral Receiver
 #include <MIDI.h>
 #include <I2CMIDI.h>
 
-I2CMIDI_CREATE_INSTANCE(I2CMIDIPERIPHERAL, 0x40, MIDI);
+I2CMIDI_CREATE_INSTANCE(I2CMIDIPERIPHERAL, 0x40, I2CMIDI);
 
 void setup()
 {
-   MIDI.begin(1);
+   I2CMIDI.begin(1);
 ...
 
 void loop()
 {
-   MIDI.read();
+   I2CMIDI.read();
    ...
 ```
-These will create a instance named `MIDI` using an I2C exchange to a device at I2C address 0x40, using MIDI channel 1.
+These will create a instance named `I2CMIDI` using an I2C exchange to a device at I2C address 0x40, using MIDI channel 1.
 
 There should only be one CONTROLLER on the bus, but in principle there can be several PERIPHERALs.  Either can send or receive MIDI data but note that it is more efficient for a CONTROLLER to do the sending and PERIPHERALs to receive.
 
