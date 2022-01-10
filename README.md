@@ -73,6 +73,19 @@ For details on this one, refer to the blog post: [Arduino I2C MIDI Interface - P
 
 This requires three Arduinos and shows how a single I2C MIDI controller can talk to two I2C MIDI peripherals.  The provided code runs on an Arduino acting as a serial to I2C MIDI relay. One Arduino should be running the I2CMIDIReceive example and have a loudspeaker connected.  The remaining Arduino should be running the I2CSerialMIDIRelay example, but configured for I2C2SERIAL mode using I2C address 0x50.
 
+```
+#include <MIDI.h>
+#include <I2CMIDI.h>
+
+#define I2CMIDIADDR1 0x40
+#define I2CMIDIADDR2 0x50
+
+// Both instances are CONTROLLERS, but will be looking to talk to PERIPHERALS with different addresses.
+I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR1, I2CMIDI1);  // CONTROLLER OUT
+I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR2, I2CMIDI2);  // CONTROLLER OUT
+
+```
+
 Further details for this example can be found in the blog post: [Arduino I2C MIDI Interface - Part 4](https://diyelectromusic.wordpress.com/2022/01/10/arduino-i2c-midi-interface-part-4/)
 
 Kevin

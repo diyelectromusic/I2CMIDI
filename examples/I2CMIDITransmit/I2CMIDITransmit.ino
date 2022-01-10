@@ -42,8 +42,8 @@
 // gives the best performance if that is manageable.
 //
 #define I2CMIDIADDR 0x40
-I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR, MIDI);  // CONTROLLER OUT
-//I2CMIDI_CREATE_INSTANCE(I2CMIDIPERIPHERAL, I2CMIDIADDR, MIDI);  // PERIPHERAL OUT
+I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR, I2CMIDI);  // CONTROLLER OUT
+//I2CMIDI_CREATE_INSTANCE(I2CMIDIPERIPHERAL, I2CMIDIADDR, I2CMIDI);  // PERIPHERAL OUT
 
 #define MIDI_CHANNEL 1
 #define MIDI_LED LED_BUILTIN
@@ -51,7 +51,7 @@ I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR, MIDI);  // CONTROLLER OU
 void setup() {
     Serial.begin(9600);
     pinMode(MIDI_LED, OUTPUT);
-    MIDI.begin(MIDI_CHANNEL_OFF);
+    I2CMIDI.begin(MIDI_CHANNEL_OFF);
 }
 
 void loop() {
@@ -59,19 +59,19 @@ void loop() {
     Serial.println(MIDI_CHANNEL);
     for (int i=0; i<13; i++) {
         digitalWrite(MIDI_LED, HIGH);
-        MIDI.sendNoteOn(60+i, 127, MIDI_CHANNEL);
+        I2CMIDI.sendNoteOn(60+i, 127, MIDI_CHANNEL);
         delay(100);
         digitalWrite(MIDI_LED, LOW);
-        MIDI.sendNoteOff(60+i, 0, MIDI_CHANNEL);
+        I2CMIDI.sendNoteOff(60+i, 0, MIDI_CHANNEL);
         delay(100);
     }
     delay(500);
     for (int i=12; i>=0; i--) {
         digitalWrite(MIDI_LED, HIGH);
-        MIDI.sendNoteOn(60+i, 127, MIDI_CHANNEL);
+        I2CMIDI.sendNoteOn(60+i, 127, MIDI_CHANNEL);
         delay(30);
         digitalWrite(MIDI_LED, LOW);
-        MIDI.sendNoteOff(60+i, 0, MIDI_CHANNEL);
+        I2CMIDI.sendNoteOff(60+i, 0, MIDI_CHANNEL);
     }
     delay(500);
 }

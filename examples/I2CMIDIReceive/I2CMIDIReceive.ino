@@ -42,8 +42,8 @@
 // gives the best performance if that is manageable.
 //
 #define I2CMIDIADDR 0x40
-I2CMIDI_CREATE_INSTANCE(I2CMIDIPERIPHERAL, I2CMIDIADDR, MIDI);   // PERIPHERAL IN
-//I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR, MIDI);   // CONTROLLER IN
+I2CMIDI_CREATE_INSTANCE(I2CMIDIPERIPHERAL, I2CMIDIADDR, I2CMIDI);   // PERIPHERAL IN
+//I2CMIDI_CREATE_INSTANCE(I2CMIDICONTROLLER, I2CMIDIADDR, I2CMIDI);   // CONTROLLER IN
 
 #define MIDI_CHANNEL 1
 #define MIDI_LED LED_BUILTIN
@@ -95,12 +95,12 @@ void midiNoteOff(byte channel, byte pitch, byte velocity) {
 void setup() {
     Serial.begin(9600);
     pinMode(MIDI_LED, OUTPUT);
-    MIDI.setHandleNoteOn(midiNoteOn);
-    MIDI.setHandleNoteOff(midiNoteOff);
-    MIDI.begin(MIDI_CHANNEL);
+    I2CMIDI.setHandleNoteOn(midiNoteOn);
+    I2CMIDI.setHandleNoteOff(midiNoteOff);
+    I2CMIDI.begin(MIDI_CHANNEL);
     Serial.println("Listening for MIDI data...");
 }
 
 void loop() {
-    MIDI.read();
+    I2CMIDI.read();
 }
