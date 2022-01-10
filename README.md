@@ -69,5 +69,11 @@ A second example provides code to show how an Arduino can act as a one-way Seria
 
 For details on this one, refer to the blog post: [Arduino I2C MIDI Interface - Part 3](https://diyelectromusic.wordpress.com/2022/01/09/arduino-i2c-midi-interface-part-3/)
 
+### Provided Example 3
+
+This requires three Arduinos and shows how a single I2C MIDI controller can talk to two I2C MIDI peripherals.  The provided code runs on an Arduino acting as a serial to I2C MIDI relay. One Arduino should be running the I2CMIDIReceive example and have a loudspeaker connected.  The remaining Arduino should be running the I2CSerialMIDIRelay example, but configured for I2C2SERIAL mode using I2C address 0x50.
+
+Further details for this example can be found in the blog post: [Arduino I2C MIDI Interface - Part 4](https://diyelectromusic.wordpress.com/2022/01/10/arduino-i2c-midi-interface-part-4/)
+
 Kevin
 @diyelectromusic
