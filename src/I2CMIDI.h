@@ -186,9 +186,8 @@ private:
 };
 
 /*! \brief Create an instance of the library attached to an I2C port.
- You can use iicSerial1 or iicSerial2 for the serial port.
- Example: MIDI_CREATE_INSTANCE(DFRobot_IICSerial, iicSerial2, midi2);
- Then call midi2.begin(), midi2.read() etc..
+ Example: MIDI_CREATE_INSTANCE(I2CMIDICONROLLER, I2CADDR, i2cmidi);
+ Then call i2cmidi.begin(), i2cmidi.read() etc..
  */
 #define I2CMIDI_CREATE_INSTANCE(I2CMaster, I2CAddr, Name)  \
     I2CMIDI_NAMESPACE::I2CMIDI I2C##Name(I2CMaster, I2CAddr);\
